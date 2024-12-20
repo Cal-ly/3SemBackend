@@ -6,7 +6,7 @@ public class ParticipantsRepository
 
     public ParticipantsRepository()
     {
-        _participants = new List<Participant>();
+        _participants = [];
         _nextId = 1;
 
         // Adding 5 Participant objects to the list
