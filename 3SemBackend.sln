@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3SemLibrary", "3SemLibrary\3SemLibrary.csproj", "{738D673C-ABF8-4DE0-B1A7-C31F8692DDD3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticipantLib", "3SemLibrary\ParticipantLib.csproj", "{738D673C-ABF8-4DE0-B1A7-C31F8692DDD3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3SemTests", "3SemTests\3SemTests.csproj", "{35A6C041-FA8D-4ED2-8FDC-3E96C8681A6B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParticipantTests", "3SemTests\ParticipantTests.csproj", "{35A6C041-FA8D-4ED2-8FDC-3E96C8681A6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3SemAPI", "3SemAPI\3SemAPI.csproj", "{9903739A-9D10-4C21-9533-1CCB0431247B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3SemAPI", "3SemAPI\3SemAPI.csproj", "{3CE7F40A-49FC-48EE-9D22-126C204D9233}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{35A6C041-FA8D-4ED2-8FDC-3E96C8681A6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35A6C041-FA8D-4ED2-8FDC-3E96C8681A6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35A6C041-FA8D-4ED2-8FDC-3E96C8681A6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9903739A-9D10-4C21-9533-1CCB0431247B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9903739A-9D10-4C21-9533-1CCB0431247B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9903739A-9D10-4C21-9533-1CCB0431247B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9903739A-9D10-4C21-9533-1CCB0431247B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CE7F40A-49FC-48EE-9D22-126C204D9233}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CE7F40A-49FC-48EE-9D22-126C204D9233}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CE7F40A-49FC-48EE-9D22-126C204D9233}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CE7F40A-49FC-48EE-9D22-126C204D9233}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

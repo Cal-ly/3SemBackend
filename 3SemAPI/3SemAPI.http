@@ -1,6 +1,6 @@
-@_3SemAPI_HostAddress = http://localhost:5166
+@_3SemAPI_HostAddress = http://localhost:5071
 
-GET {{_3SemAPI_HostAddress}}/swagger/
+GET {{_3SemAPI_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
