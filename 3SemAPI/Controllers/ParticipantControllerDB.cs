@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using _3SemLibrary;
+using _3SemAPI.Data;
+using _3SemAPI.Repositories;
 
 namespace _3SemAPI.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ParticipantController : ControllerBase
+    public class ParticipantControllerDB : ControllerBase
     {
-        private readonly ParticipantsRepository _repository;
+        private readonly ParticipantsRepositoryDB _repository;
 
-        public ParticipantController(ParticipantsRepository repository)
+        public ParticipantControllerDB(ParticipantsRepositoryDB repository)
         {
             _repository = repository;
         }
@@ -20,9 +22,10 @@ namespace _3SemAPI.Controllers
         /// <returns>A list of participants.</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<IEnumerable<Participant>> GetAll()
+        public async Task<ActionResult<IEnumerable<Participant>>> GetAll()
         {
-            return Ok(_repository.GetAll());
+            var participants = await _repository.GetAllAsync();
+            return Ok(participants);
         }
 
         /// <summary>
@@ -33,11 +36,11 @@ namespace _3SemAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult<Participant> GetById(int id)
+        public async Task<ActionResult<Participant>> GetById(int id)
         {
             try
             {
-                var participant = _repository.GetById(id);
+                var participant = await _repository.GetByIdAsync(id);
                 return Ok(participant);
             }
             catch (ArgumentException)
@@ -54,12 +57,12 @@ namespace _3SemAPI.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public ActionResult<Participant> Add([FromBody] Participant participant)
+        public async Task<ActionResult<Participant>> Add([FromBody] Participant participant)
         {
             try
             {
                 participant.ValidateParticipant();
-                _repository.Add(participant);
+                await _repository.AddAsync(participant);
                 return CreatedAtAction(nameof(GetById), new { id = participant.Id }, participant);
             }
             catch (ArgumentException ex)
@@ -78,12 +81,12 @@ namespace _3SemAPI.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult Update(int id, [FromBody] Participant participant)
+        public async Task<ActionResult> Update(int id, [FromBody] Participant participant)
         {
             try
             {
                 participant.ValidateParticipant();
-                _repository.Update(id, participant);
+                await _repository.UpdateAsync(id, participant);
                 return NoContent();
             }
             catch (ArgumentException ex)
@@ -100,11 +103,11 @@ namespace _3SemAPI.Controllers
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
             try
             {
-                _repository.Remove(id);
+                await _repository.RemoveAsync(id);
                 return NoContent();
             }
             catch (ArgumentException)
